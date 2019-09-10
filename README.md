@@ -39,7 +39,7 @@ Run the Prior Authorization Server [(Reference Implementation)](https://github.c
   "criteria": "identifier=[priorauth identifier]&patient.identifier=[patient id]&status=active",
   "channel": {
     "type": "rest-hook",
-    "endpoint": "http://localhost:9000/fhir/SubscriptionNotification?identifier=[priorauth identifier]&patient.identifier=[patient id]&status=active"
+    "endpoint": "http://localhost:9090/fhir/SubscriptionNotification?identifier=[priorauth identifier]&patient.identifier=[patient id]&status=active"
   }
 }
 ```
@@ -48,7 +48,7 @@ This will create a new subscription. When a new ClaimResponse is created the not
 
 ## FHIR Services
 
-The service endpoints in the table below are relative to `http://localhost:9000/fhir`.
+The service endpoints in the table below are relative to `http://localhost:9090/fhir`.
 
 | Service                     | Methods | Description                                                 |
 | --------------------------- | ------- | ----------------------------------------------------------- |
