@@ -17,8 +17,8 @@ function connect() {
   stompClient.connect({}, function(frame) {
     setConnected(true);
     console.log("Connected: " + frame);
-    stompClient.subscribe("/private/notification", function(greeting) {
-      showMessage(greeting.body);
+    stompClient.subscribe("/private/notification", function(msg) {
+      showMessage(msg.body);
     });
   });
 }
@@ -32,8 +32,6 @@ function disconnect() {
 }
 
 function bindId() {
-  console.log("binding id");
-  console.log("bind: " + $("#subscriptionId").val());
   stompClient.send("/subscribe", {}, "bind: " + $("#subscriptionId").val());
 }
 
@@ -52,7 +50,6 @@ $(function() {
     disconnect();
   });
   $("#send").click(function() {
-    console.log("Send clicked");
     bindId();
   });
 });
